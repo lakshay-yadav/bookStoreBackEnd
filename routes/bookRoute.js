@@ -1,5 +1,5 @@
 const express = require("express")
-const Book = require("../models/book")
+const Book = require("../models/Book.js")
 const router = express.Router()
 
 router.get('/',async (req,res)=>{
