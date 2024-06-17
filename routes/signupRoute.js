@@ -1,20 +1,11 @@
 const express = require("express");
-const User = require("../models/user");
 const router = express.Router();
+const { signupAuth } = require("../controllers/signupAuth.js");
 
-router.post("/", async (req, res) => {
-    try {
-      const data = req.body;
-      console.log(data);
-      const newUser = new User(data);
-  
-      const savedUser = await newUser.save();
-      res.status("200").json({ status: "200",savedUser });
-    } catch (err) {
-      console.log("Error", err);
-      res.status("500").json({ error: err });
-    }
-  });
+router.post("/", signupAuth);
+
+router.get('/',(req,res)=>{
+    res.json({status:"OK"})
+})
 
 module.exports = router;
-
