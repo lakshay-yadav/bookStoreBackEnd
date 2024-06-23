@@ -1,12 +1,20 @@
 const mongoose = require("mongoose")
 
 const bookSchema = new mongoose.Schema({
-    name:{
+    "id":{
+        type:Number,
+        required:true
+    },
+    title:{
         type:String,
         required:true
     },
-    authorName:{
+    author:{
         type:String,
+        required:true
+    },
+    "publication_year":{
+        type:Number,
         required:true
     },
     description:{
@@ -22,6 +30,10 @@ const bookSchema = new mongoose.Schema({
         required:true
     },
     genre:{
+        type:Array,
+        required:true
+    },
+    cover_image:{
         type:String,
         required:true
     }

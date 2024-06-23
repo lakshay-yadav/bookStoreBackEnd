@@ -1,15 +1,17 @@
 const express = require("express");
-const User = require("../models/User.js");
 const router = express.Router();
+const {detail_change,password_change,profileData,order_history,queries,wishlist} = require("../controllers/profile.js")
 
-router.get('/',async (req,res)=>{
-    try{
-        const data = await User.find()
-        res.json(data)
-    }
-    catch(err){
-        res.json({error:err})
-    }
-})
+router.post('/',profileData)
+
+router.post("/detail_change",detail_change);
+
+router.post("/password_change",password_change)
+
+router.post("/orderhistory",order_history)
+
+router.post("/queries",queries)
+
+router.post("/wishlist",wishlist)
 
 module.exports = router

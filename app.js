@@ -12,6 +12,7 @@ const profileRoute = require("./routes/profileRoute.js")
 const homeRoute = require("./routes/homeRoute.js")
 const signinRoute = require("./routes/signinRoute.js")
 const contactusRoute = require("./routes/contactusRoute.js")
+const cartRoute = require("./routes/cartRoute.js")
 
 // DB connection
 const db = dbConnection()
@@ -33,6 +34,8 @@ app.use('/api/profile',profileRoute)
 app.use("/api/signin",signinRoute);
 
 app.use("/api/contactus",contactusRoute);
+
+app.use('/api/cart',cartRoute)
 
 // Starting the server
 app.listen(process.env.PORT || 8000, () => {
