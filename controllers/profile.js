@@ -81,19 +81,5 @@ const queries = async (req,res)=>{
     }
 }
 
-const wishlist = async (req,res)=>{
-    const data = req.body
-    console.log("Inside profile order history");
-    console.log(data);
-
-    try{
-        
-        res.status(200).json({status:"OK"})
-    }
-    catch(err){
-        res.status(500).json({status:"Error Occurred",error:err})
-    }
-}
-
-module.exports = {detail_change,password_change,profileData,order_history,queries,wishlist}
+module.exports = {detail_change,password_change,profileData,order_history,queries}
 

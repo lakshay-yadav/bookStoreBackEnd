@@ -12,8 +12,34 @@ router.get('/',async (req,res)=>{
     }
 })
 
-router.get('/:bookId',(req,res)=>{
-    const bookId = req.params.bookId
+router.get('/book/:id',async (req,res)=>{
+    const bookId = req.params.id
+    console.log("Inside book detail route")
+    console.log(bookId)
+    
+    try{
+        const book = await Book.find({_id:bookId})
+        console.log(book);
+        res.status(200).json({status:"OK",book:book})
+    }
+    catch(err){
+        res.status(500).json({err})
+    }
+})
+
+router.get('/books/:genre',async(req,res)=>{
+    const genre = req.params.genre
+    console.log("Inside book genre route");
+    console.log(genre)
+
+    try{
+        const books = await Book.find({genre:genre})
+        console.log(books)
+        res.status(200).json({books:books})
+    }
+    catch(err){
+        res.status(500).json({err})
+    }
 })
 
 module.exports = router

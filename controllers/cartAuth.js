@@ -7,7 +7,6 @@ const addToCart = async (req,res)=>{
     console.log(cart)
 
     try{
-        // (await User.find({email:data.email}))[0].cart.find(book:cart._id)
         await User.findOneAndUpdate({email:data.email},{
             $push:{
                 cart:{

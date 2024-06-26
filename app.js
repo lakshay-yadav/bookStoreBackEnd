@@ -13,6 +13,7 @@ const homeRoute = require("./routes/homeRoute.js")
 const signinRoute = require("./routes/signinRoute.js")
 const contactusRoute = require("./routes/contactusRoute.js")
 const cartRoute = require("./routes/cartRoute.js")
+const wishlistRoute = require("./routes/wishlistRoute.js")
 
 // DB connection
 const db = dbConnection()
@@ -36,6 +37,8 @@ app.use("/api/signin",signinRoute);
 app.use("/api/contactus",contactusRoute);
 
 app.use('/api/cart',cartRoute)
+
+app.use('/api/wishlist',wishlistRoute)
 
 // Starting the server
 app.listen(process.env.PORT || 8000, () => {
